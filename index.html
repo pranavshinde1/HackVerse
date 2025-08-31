@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💰 Personal Finance Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js library for beautiful financial charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Main heading with welcoming feel -->
+        <h1>💰 Personal Finance Visualizer</h1>
+        <p style="text-align: center; color: #666; margin-bottom: 30px;">
+            Take control of your finances with smart tracking and insights
+        </p>
+
+        <!-- Income/Expense Entry Section -->
+        <div class="form-section">
+            <h2>📝 Add New Transaction</h2>
+            <form id="entryForm">
+                <select id="type" title="Choose whether this is money coming in or going out">
+                    <option value="income">💵 Income</option>
+                    <option value="expense">💸 Expense</option>
+                </select>
+                <input type="text" id="desc" placeholder="What's this for? (e.g., Salary, Groceries)" required>
+                <input type="number" id="amount" placeholder="Amount (₹)" min="0" step="0.01" required>
+                <input type="month" id="month" title="Which month is this for?" required>
+                <button type="submit">➕ Add Transaction</button>
+            </form>
+        </div>
+
+        <!-- Transaction History Display -->
+        <div class="data-section">
+            <h2>📋 Your Transactions</h2>
+            <div id="dataList">
+                <p style="color: #888; text-align: center; margin: 20px 0;">
+                    No transactions yet. Add your first income or expense above!
+                </p>
+            </div>
+        </div>
+
+        <!-- Savings Goal Section -->
+        <div class="goal-section">
+            <h2>🎯 Savings Goal</h2>
+            <p style="color: #666; margin-bottom: 15px;">
+                Set a target amount you want to save and track your progress!
+            </p>
+            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                <input type="number" id="goal" placeholder="Enter your savings goal (₹)" min="0" step="100">
+                <button id="setGoalBtn">🎯 Set Goal</button>
+            </div>
+            <p id="goalDisplay">No savings goal set yet.</p>
+            <div id="goalProgress" style="margin-top: 10px;"></div>
+        </div>
+
+        <!-- Financial Charts Section -->
+        <div class="chart-section">
+            <h2>📊 Your Financial Overview</h2>
+            <p style="color: #666; margin-bottom: 15px;">
+                Visual breakdown of your income, expenses, and savings by month
+            </p>
+            <canvas id="financeChart" width="400" height="200"></canvas>
+        </div>
+
+        <!-- Smart Tips Section -->
+        <div class="tips-section">
+            <h2>💡 Smart Money Tips</h2>
+            <p style="color: #666; margin-bottom: 15px;">
+                Personalized advice based on your spending patterns
+            </p>
+            <div id="tips">
+                Add some financial data to get personalized money-saving tips!
+            </div>
+        </div>
+
+        <!-- Data Export Section -->
+        <div class="export-section">
+            <h2>📥 Export Your Data</h2>
+            <p style="color: #666; margin-bottom: 15px;">
+                Download your financial data as a CSV file for backup or analysis
+            </p>
+            <button id="exportBtn">📊 Export as CSV</button>
+        </div>
+
+        <!-- Footer with helpful info -->
+        <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; color: #888;">
+            <p>💾 Your data is stored securely in your browser • 🔒 No data is sent to any servers</p>
+        </div>
+    </div>
+
+    <!-- Load our JavaScript file - FIXED FILENAME -->
+    <script src="app.js"></script>
+</body>
+</html>
